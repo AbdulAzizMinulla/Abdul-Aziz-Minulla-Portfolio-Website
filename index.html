@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+</head>
+<body>
+<div id="header">
+    <div class="container">
+        <nav>
+            <img src="image.png" class="logo">
+            <ul id="sidemenu">
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Projects</a></li>
+                <li><a href="#services">Ceritfications</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <i class="fas fa-times" onclick="closemenu()"></i>
+            </ul>
+            <i class="fas fa-bars" onclick="openmenu()"></i>
+        </nav>
+        <div class="header-text">
+            <h1> <br><span>Abdul Aziz Minulla</span></h1>
+            <p>Fresher | Intern | Data Science</p>
+        </div>
+    </div>
+</div>
+<!-- -----------about---------- -->
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="PassportPic.jpg">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p>Aspiring data scientist and current intern at AI Variant, Bengaluru, gaining hands-on experience with industry
+                    level projects. Completed a Data Science course at ExcelR, Hyderabad, building strong analytical and
+                     machine learning skills. Passionate about solving real-world problems through data-driven solutions and
+                     continuous learning.</p>
+
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('experience')">Internships & Training</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>DATA SCIENCE</span><br>Supervised and Unsupervised Machine Learning Algorithms, ANN, RNN, CNN, EDA, Feature Engineering, Ensemble methods, Model Evaluation, Visualization, ML Project Life cycle.</li>
+                        <li><span>MATHEMATICS FOR DS & ML</span><br>Algebra, Probability, Statistics, Calculus.</li>
+                        <li><span>PYTHON PACKAGES AND FRAMEWORKS</span><br>Scikit-learn, Pandas, Numpy, Matplotlib, Seaborn.</li>
+                        <li><span>Basic Skills</span><br>Python Programming, Jupyter Notebook, Github, hTML & Photoshop.</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>October 2024 - Present</span><br>AI VARIANT - Data Science Intern</li>
+                        <li><span>August 2019 - January 2024</span><br>EXCELR - Data Science Trainee</li>
+                        <li><span>May 2013 - June 2023</span><br>PINNACLE NANOTECH INDIA PRIVATE LIMITED - Web Development Trainee</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>2020 - 2024</span><br>B-Tech in Computer Science and Engineering<br><span>GVPCDPGC(A), Andhra University - (CGPA - 7.89)</span></li>
+                        <br>
+                        <li><span>2017 - 2019</span><br>Intermediate<br><span>Cipra Junior College, BIEAP - (CGPA - 7.56)</span></li>
+                        <br>
+                        <li><span>2017</span><br>Tenth<br><span>Little Angels School, BSEAP - (CGPA - 9.0)</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ----------portfolio------------ -->
+<style>
+    #portfolio {
+        background: #000000;
+        padding: 60px 0;
+    }
+
+    .sub-title {
+        text-align: center;
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+
+    .project-section {
+        margin-bottom: 60px;
+    }
+
+    .carousel-container {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .carousel-images {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-slide {
+        min-width: 100%;
+        height: 400px;
+    }
+
+    .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        font-size: 24px;
+        padding: 10px 15px;
+        border: none;
+        cursor: pointer;
+        border-radius: 50%;
+        z-index: 2;
+    }
+
+    .left-btn {
+        left: 10px;
+    }
+
+    .right-btn {
+        right: 10px;
+    }
+
+    .project-links {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .project-links a {
+        background-color: #007bff;
+        color: white;
+        padding: 12px 24px;
+        text-decoration: none;
+        border-radius: 25px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+
+    .project-links a:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<!-- ----------portfolio------------ -->
+<div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">PROJECTS</h1>
+
+        <!-- Loop for 4 projects -->
+         <h2>Project-1 : MOVIE RECOMMENDATION SYSTEM</h2>
+        <div class="project-section" data-project="0">
+            <div class="carousel-container">
+                <button class="carousel-btn left-btn">&#10094;</button>
+                <div class="carousel-images">
+                    <div class="carousel-slide"><img src="project1-1.png" alt="Project 1 Screenshot 1"></div>
+                    <div class="carousel-slide"><img src="project1-2.png" alt="Project 1 Screenshot 2"></div>
+                </div>
+                <button class="carousel-btn right-btn">&#10095;</button>
+            </div>
+            <div class="project-links">
+                <a href="https://movie-recommender-system-aziz-minulla.streamlit.app/" target="_blank">Click here for project demo</a>
+                <a href="https://github.com/AbdulAzizMinulla/Movie-Recommender-System.git" target="_blank">Code Files</a>
+            </div>
+        </div>
+        <h2>Project-2 : STOCK MARKET ANALYSIS</h2>
+        <div class="project-section" data-project="1">
+            <div class="carousel-container">
+                <button class="carousel-btn left-btn">&#10094;</button>
+                <div class="carousel-images">
+                    <div class="carousel-slide"><img src="project2-1.png" alt="Project 2 Screenshot 1"></div>
+                    <div class="carousel-slide"><img src="project2-2.png" alt="Project 2 Screenshot 2"></div>
+                </div>
+                <button class="carousel-btn right-btn">&#10095;</button>
+            </div>
+            <div class="project-links">
+                <a href="https://stock-market-app-aziz-minulla.streamlit.app/" target="_blank">Click here for project demo</a>
+                <a href="https://github.com/AbdulAzizMinulla/Stock-market-app.git" target="_blank">Code Files</a>
+            </div>
+        </div>
+        <h2>Project-3 : PRODUCT SIMILARITY & RECOMMENDATION</h2>
+        <div class="project-section" data-project="2">
+            <div class="carousel-container">
+                <button class="carousel-btn left-btn">&#10094;</button>
+                <div class="carousel-images">
+                    <div class="carousel-slide"><img src="project3-1.png" alt="Project 3 Screenshot 1"></div>
+                    <div class="carousel-slide"><img src="project3-2.png" alt="Project 3 Screenshot 2"></div>
+                </div>
+                <button class="carousel-btn right-btn">&#10095;</button>
+            </div>
+            <div class="project-links">
+                <a href="https://p-recommender-system-aziz-minulla.streamlit.app/" target="_blank">Click here for project demo</a>
+                <a href="https://github.com/AbdulAzizMinulla/Product-Recommendation-System1.git" target="_blank">Code Files</a>
+            </div>
+        </div>
+
+        <!-- <div class="project-section" data-project="3">
+            <div class="carousel-container">
+                <button class="carousel-btn left-btn">&#10094;</button>
+                <div class="carousel-images">
+                    <div class="carousel-slide"><img src="images/project4-1.png" alt="Project 4 Screenshot 1"></div>
+                    <div class="carousel-slide"><img src="images/project4-2.png" alt="Project 4 Screenshot 2"></div>
+                </div>
+                <button class="carousel-btn right-btn">&#10095;</button>
+            </div>
+            <div class="project-links">
+                <a href="https://demo-link1.com" target="_blank">Click here for project demo</a>
+                <a href="https://demo-link1.com" target="_blank">Code Files</a>
+            </div>
+        </div> -->
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll('.project-section').forEach(section => {
+        let index = 0;
+        const carousel = section.querySelector('.carousel-images');
+        const slides = section.querySelectorAll('.carousel-slide');
+        const leftBtn = section.querySelector('.left-btn');
+        const rightBtn = section.querySelector('.right-btn');
+
+        leftBtn.addEventListener('click', () => {
+            index = (index - 1 + slides.length) % slides.length;
+            carousel.style.transform = `translateX(-${index * 100}%)`;
+        });
+
+        rightBtn.addEventListener('click', () => {
+            index = (index + 1) % slides.length;
+            carousel.style.transform = `translateX(-${index * 100}%)`;
+        });
+    });
+</script>
+
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #000000;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: auto;
+        padding: 40px 20px;
+    }
+
+    .sub-title {
+        text-align: center;
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+
+    .carousel-wrapper {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .certification-carousel {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: 100%;
+    }
+
+    .certification-item {
+        min-width: 100%;
+        height: 300px;
+        flex-shrink: 0;
+        overflow: hidden;
+        border-radius: 10px;
+        background: #fff;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .certification-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+    }
+
+    .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 30px;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        padding: 10px 15px;
+        border-radius: 50%;
+        z-index: 10;
+    }
+
+    .cert-left-btn {
+        left: 10px;
+    }
+
+    .cert-right-btn {
+        right: 10px;
+    }
+</style>
+
+<!-- ---------certifications---------------- -->
+<div id="services">
+    <div class="container">
+        <h1 class="sub-title">CERTIFICATIONS</h1>
+        <div class="carousel-wrapper">
+            <button class="carousel-btn cert-left-btn">&#10094;</button>
+            <div class="certification-carousel" id="certificationCarousel">
+                <div class="certification-item">
+                    <img src="cert1.png" alt="Certificate 1">
+                </div>
+                <div class="certification-item">
+                    <img src="cert2.png" alt="Certificate 2">
+                </div>
+                <div class="certification-item">
+                    <img src="cert3.png" alt="Certificate 3">
+                </div>
+                <div class="certification-item">
+                    <img src="cert4.png" alt="Certificate 4">
+                </div>
+            </div>
+            <button class="carousel-btn cert-right-btn">&#10095;</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const carousel = document.getElementById('certificationCarousel');
+    const leftBtn = document.querySelector('.cert-left-btn');
+    const rightBtn = document.querySelector('.cert-right-btn');
+    const items = document.querySelectorAll('.certification-item');
+    let index = 0;
+
+    function updateCarousel() {
+        carousel.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    rightBtn.addEventListener('click', () => {
+        index = (index + 1) % items.length;
+        updateCarousel();
+    });
+
+    leftBtn.addEventListener('click', () => {
+        index = (index - 1 + items.length) % items.length;
+        updateCarousel();
+    });
+</script>
+
+
+<!-- ----------contact------------- -->
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fas fa-paper-plane"></i> minullaaziz@gmal.com</p>
+                <p><i class="fas fa-phone-square-alt"></i> +91 9703588371</p>
+                <div class="social-icons">
+                    <a href="https://github.com/AbdulAzizMinulla"><i class="fab fa-github"></i></a>
+                    <a href="www.linkedin.com/in/minulla-abdul-aziz-4a40ba241"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <a href="MINULLA ABDUL AZIZ (13).pdf" download class="btn btn2">Download CV</a>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Developed and Maintained</i> by MINULLA ABDUL AZIZ</a></p>
+    </div>
+</div>
+
+
+
+<script>
+
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+
+</script>
+
+<script>
+
+    var sidemeu = document.getElementById("sidemenu");
+
+    function openmenu(){
+        sidemeu.style.right = "0";
+    }
+    function closemenu(){
+        sidemeu.style.right = "-200px";
+    }
+
+</script>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxJ8cx0ApYRYwmL2J1QmgndOWrtPAW7R6huPMZFHuRWeQ3jwPfhfJOM_0qGIiOS4k3_/exec' // add your own app script link here
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent successfully"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>
